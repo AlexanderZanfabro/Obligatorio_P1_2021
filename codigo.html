@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musica</title>
+  <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+
+<body>
+
+  <div id="contenedor">
+    <div id="cabezal" class="clearfix">
+      <img id="logo" src="https://develotion.com/assets/img/logo.jpg" alt="logo">
+      <ul id="navPrincipal">
+        <li class="btnSeccion noLogeado" id="btnSeccionProfesor">
+          <a>Profesor</a>
+        </li>
+        <li class="btnSeccion noLogeado" id="btnSeccionEstudiante">
+          <a>Estudiante</a>
+        </li>
+        <li class="btnSeccion noLogeado " id="btnSeccionIniciarSesion">
+          <a>Iniciar sesion</a>
+        </li>
+        <li class="btnSeccion profesor" id="btnSeccionVerEstudiantes">
+          <a>Ver estudiantes</a>
+        </li>
+        <li class="btnSeccion profesor" id="btnSeccionSubirTareas">
+          <a>Subir tareas</a>
+        </li>
+        <li class="btnSeccion profesor" id="btnSeccionCorregirTareas">
+          <a>Corregir tareas</a>
+        </li>
+        <li class="btnSeccion profesor" id="btnSeccionVerEstadisticasProfesor">
+          <a>Ver estadísticas</a>
+        </li>
+
+        <li class="btnSeccion estudiante" id="btnSeccionEjerciciosPlanteados">
+          <a>Ejercicios planteados </a>
+        </li>
+        <li class="btnSeccion estudiante" id="btnSeccionEntregaDeEjercicios">
+          <a>Entrega de ejercicios</a>
+        </li>
+        <li class="btnSeccion estudiante" id="btnSeccionEjerciciosResuletos">
+          <a>Ejercicos resuletos</a>
+        </li>
+        <li class="btnSeccion estudiante" id="btnSeccionVerEstadisticasEstudiante">
+          <a>Ver estadísticas</a>
+        </li>
+
+      </ul>
+
+      <!-- INICIO AUX -->
+      <div id="aux">
+        <p id="pMostrarUsuarioActivo"></p>
+
+        <li class="btnSeccion  profesor estudiante" id="btnSeccionCerrarSesion">
+          <a>Cerrar sesión</a>
+        </li>
+      </div><!-- FIN AUX -->
+
+    </div><!-- FIN CABEZAL -->
+ 
+    <!------------------------------------------------------------------------------------------------------------------- -->
+    <div id="contenido">
+
+      <!----------------------  SECCION REGISTRO ----------------------->
+
+      <div class="seccion seccionProfe" id="seccionProfesor">
+        <h1>Registro profesores</h1>
+        <label for="txtNombre1">Nombre:</label>
+        <input type="text" id="txtNombre1"><br>
+        <label for='txtNomUsuario1'>Nombre de usuario:</label>
+        <input type='text' id='txtNomUsuario1'><br>
+        <label for='txtContraseña1'>Contraseña:</label>
+        <input type='password' id='txtContraseña1'><br>
+        <input type="button" value="Registrar" id="btnRegistrarProfesor">
+      </div>
+
+      <div class="seccion seccionEstud" id="seccionEstudiante">
+        <h1>Registro estudiantes</h1>
+        <label for="txtNombre2">Nombre:</label>
+        <input type="text" id="txtNombre2"><br>
+        <label for='txtNomUsuario2'>Nombre de usuario:</label>
+        <input type='text' id='txtNomUsuario2'><br>
+        <label for='txtContraseña2'>Contraseña:</label>
+        <input type='password' id='txtContraseña2'><br>
+        <label for="slcDocente">Seleccione:</label>
+        <select id="slcDocente">
+
+        </select>
+
+        <input type="button" value="Registrar" id="btnRegistrarEstudiante">
+      </div>
+
+
+      <!----------------------  SECCION INICIO SESION ----------------------->
+
+      <div class="seccion seccionProfe seccionEstud" id="seccionIniciarSesion">
+        <h1>Iniciar Sesion</h1>
+        <label for='txtNomUsuario'>Nombre de usuario:</label>
+        <input type='text' id='txtNomUsuario'><br>
+        <label for='txtContraseña'>Contraseña:</label>
+        <input type='password' id='txtContraseña'><br>
+
+        <input type="button" value="Iniciar sesion" id="btnIniciar">
+      </div>
+
+
+      <!----------------------  SECCION PROFESOR ----------------------->
+
+      <div class="seccion seccionProfe" id="seccionVerEstudiantes">
+        <h1>Ver estudiantes</h1>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Nivel</th>
+            </tr>
+          </thead>
+          <tbody id="tblNivelAlumnos"></tbody>
+        </table>
+      </div>
+
+      <div class="seccion seccionProfe" id="seccionSubirTareas">
+        <h1>Subir tareas</h1>
+
+        <label for="slcNivelAlumnoEjercicios">Nivel de estudiantes</label>
+        <!--ingresa nivel de estudiante al que va dirigido el ejercicio-->
+        <select id="slcNivelAlumnoEjercicios">
+          <option value="-1">Seleccionar un nivel</option>
+          <option value="Inicial">Inicial</option>
+          <option value="Intermedio">Intermedio</option>
+          <option value="Avanzado">Avanzado</option>
+        </select>
+        <br>
+        <label for="txtTituloEjercicio">Titulo del ejercicio:</label>
+        <input type="text" id="txtTituloEjercicio">
+        <br>
+        <label for="filePartiturasEjercicios">Seleccione partitura :</label>
+        <input type="file" id="filePartiturasEjercicios">
+        <br>
+        <label for="txtDescripcionEjercicios"></label>
+        <textarea id="txtDescripcionEjercicios" cols="50" rows="5">Descripción del ejercicio:</textarea>
+        <br>
+        <label for="btnSubirEjercicios"></label>
+        <input type="button" value="Subir" id="btnSubirEjercicios">
+      </div>
+
+      <div class="seccion seccionProfe" id="seccionCorregirTareas">
+        <h1>Corregir tareas</h1>
+        <p id="pListaEjercicios"></p>
+      </div>
+
+      <div class="seccion seccionProfe" id="seccionVerEstadisticasProfesor">
+        <h1>Ver estadísticas</h1>
+
+      </div>
+
+      <!----------------------  SECCION ESTUDIANTES ----------------------->
+
+      <div class="seccion seccionEstud" id="seccionEjerciciosPlanteados">
+        <h1>Buscar ejercicios planteados</h1>
+
+        <div label for='txtBuscadorEjercicio'>Buscar un ejercicio:</label>
+          <input type='text' id='txtBuscadorEjercicio'><br>
+          <input type="button" value="Buscar" id="btnBuscadorEjercicio"><br>
+
+          <div id="seccionResultados">
+            <p id="pResultados"></p>
+          </div>
+
+          <div id="seccionTodosLosEjercicios">
+            <p id="pTodosLosEjercicios"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="seccion seccionEstud" id="seccionEntregaDeEjercicios"><!--realizar entregas-->
+        <h1>Entrega de ejercicios</h1>
+        <input type="file" name="" id="fileEntregaDeEjercicios"><br>
+        <input type="button" value="Subir" id="btnSubirAudio">
+        
+      </div>
+
+      <div class="seccion seccionEstud" id="seccionEjerciciosResuletos">
+        <h1>Ejercicos resuletos</h1>
+          <p id="pEjerciciosResuletos"></p>
+
+      </div>
+      <div class="seccion seccionEstud" id="seccionVerEstadisticasEstudiante">
+        <h1>Ver estadísticas</h1>
+
+      </div>
+
+      <!----------------------  CERRAR SESION ----------------------->
+
+      <div class="seccion seccionProfe seccionEstud" id="seccionCerrarSesion">
+      </div>
+
+    </div><!-- FIN CONTENIDO -->
+
+
+    <div id="pie">
+      <a href="https://www.ort.edu.uy">Footer</a>
+    </div><!-- FIN PIE -->
+
+  </div><!-- FIN CONTENEDOR -->
+
+  <script src="Js/codigo.js"></script>
+</body>
+
+</html>
